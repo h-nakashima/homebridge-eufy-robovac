@@ -22,6 +22,16 @@
         "type": "string",
         "required": true
       },
+      "ip": {
+        "title": "IP Address",
+        "type": "string",
+        "required": false
+      },
+      "port": {
+        "title": "Port",
+        "type": "string",
+        "required": false
+      },
       "hideFindButton": {
         "title": "Hide Find Button",
         "type": "boolean",
