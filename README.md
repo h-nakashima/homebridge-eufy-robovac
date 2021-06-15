@@ -1,5 +1,5 @@
 # homebridge-eufy-robovac
-Homebridge plugin for Eufy RoboVac
+Homebridge plugin for Eufy RoboVac fixed ["This plugin slows down Homebridge" error](https://github.com/apexad/homebridge-eufy-robovac/issues/34).
 
 ### Features
 
@@ -15,7 +15,7 @@ Homebridge plugin for Eufy RoboVac
 This easiest way to use this plugin is to use [homebridge-config-ui-x](https://www.npmjs.com/package/homebridge-config-ui-x).  
 To configure manually, add to the `accessories` section of homebridge's `config.json` after installing the plugin.
 
-**Command:** ```npm install -g homebridge-eufy-robovac```
+**Command:** ```npm install --save git+https://github.com/h-nakashima/homebridge-eufy-robovac.git```
 
 **Config:**
   ```json
@@ -24,13 +24,22 @@ To configure manually, add to the `accessories` section of homebridge's `config.
       "name": "Vacuum Cleaner",
       "deviceId": "<deviceId/devId>",
       "localKey": "<localKey>",
+      "ip": "<ipAddress>",
+      "port": "<port>",
       "hideFindButton": "<true | false, defaults to false>",
       "hideErrorSensor": "<true | false, defaults to false>",
       "useSwitchService": "<true | false, defaults to false>",
       "debugLog": "<true | false, defaults to false>"
     }
   ``` 
-You can find out more about the `deviceId`/`localKey` [here](https://github.com/joshstrange/eufy-robovac)
+You can find out more about the `deviceId`/`localKey` [here](https://github.com/joshstrange/eufy-robovac)  
+
+You can set the `ip` and `port` in the plugin of this repository to resolve [the error](https://github.com/apexad/homebridge-eufy-robovac/issues/34).  
+The `port` is 6668 by default. If this value is empty, the plugin runs with default port(6668).  
+The `ip` can be found by following the steps below.  
+1. See MAC Address in EufyHome app
+2. Find IP address by arp command or router setting page.  
+(It is recommended to assign a static IP address to the device MAC address in your router settings.)
 
 Eufy RoboVac will be added to Home app a fan accessory (since HomeKit does not natively support vacuums).  
 If `hideFindButton` is not supplied or set to false, a switch that performs the 'Find' function will also be added.  
