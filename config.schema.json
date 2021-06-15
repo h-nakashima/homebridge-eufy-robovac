@@ -28,7 +28,7 @@
         "required": false
       },
       "port": {
-        "title": "Port",
+        "title": "Port (Default:6668)",
         "type": "string",
         "required": false
       },
